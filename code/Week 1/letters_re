@@ -1,0 +1,24 @@
+# Άσκηση 1.4
+# βρείτε τη συχνότητα εμφάνισης αλφαβητικών χαρακτήρων που βρίσκονται σε κείμενο
+# αρχείου που δίνει ο χρήστης
+
+import re
+freq = {}
+tonoi = {'ά':'α', 'έ':'ε', 'ή':'η', 'ί':'ι', 'ό':'ο', 'ύ':'υ', 'ώ':'ω',
+         'ΐ': 'ι', 'ΰ':'υ', 'ϊ':'ι','ϋ':'υ'}
+while True:
+    filename = input('όνομα αρχείου:')
+    if filename == '': break
+    try:
+        with open(filename, 'r', encoding = 'utf-8') as fin:
+            txt = fin.read()
+        for letter in tonoi:
+            txt = txt.lower().replace(letter, tonoi[letter])
+        alpha = re.findall(r'[ά-ώ]', txt.lower(), re.I) #
+        for a in alpha:
+            freq[a] = freq.get(a,0) + 1
+        total = sum(freq.values())
+        for ch in sorted(freq.keys()):
+            print(ch.upper(), ord(ch), freq[ch], '{:.1f}%'.format(100*freq[ch]/total))
+    except FileNotFoundError:
+        print('το αρχείο δεν βρέθηκε')
