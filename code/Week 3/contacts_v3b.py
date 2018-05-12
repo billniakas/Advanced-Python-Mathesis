@@ -1,5 +1,3 @@
-contacts v.3b
-
 # εφαρμογή contacts v.3b με αποθήκευση σε αρχείο shelve και πράξεις σε εγγραφές
 # χωρίς ξεχωριστή κλάση persist, πλήρης υλοποίηση CRUD
 import os
