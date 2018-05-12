@@ -1,5 +1,3 @@
-contacts v.4
-
 # εφαρμογή contacts v.4 με αποθήκευση σε sqlite3 βάση δεδομένων
 # χωρίς ξεχωριστή κλάση persist, πλήρης υλοποίηση CRUD
 import os
